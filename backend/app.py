@@ -33,7 +33,7 @@ def recommend():
 
     exclude_instruction = ""
     if exclude_titles:
-        exclude_instruction = f"\n    CRITICAL: You MUST NOT recommend any of these titles because the user has already seen them: {', '.join(exclude_titles)}"
+        exclude_instruction = f"\n\n    CRITICAL RULE: DO NOT UNDER ANY CIRCUMSTANCES recommend any of the following titles. The user has already seen them. You must provide totally new, unique recommendations: {', '.join(exclude_titles)}\n"
 
     prompt = f"""
     The user is currently feeling: "{mood}".{exclude_instruction}
@@ -79,7 +79,7 @@ def recommend():
                     "content": prompt
                 }
             ],
-            temperature=0.7,
+            temperature=0.9,
             max_tokens=1024,
             top_p=1,
         )
