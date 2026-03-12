@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura - Mood Based Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <main class="container">
+        <header>
+            <h1 class="logo">Aura</h1>
+            <p class="subtitle">Discover media that matches your vibe.</p>
+        </header>
+
+        <section class="input-section">
+            <div class="input-container">
+                <input type="text" id="moodInput" placeholder="How are you feeling right now?">
+                <button id="recommendBtn" aria-label="Get Recommendations">
+                    <i class="fa-solid fa-sparkles"></i> Vibe Check
+                </button>
+            </div>
+
+            <div class="quick-moods">
+                <span class="chip" data-mood="Happy and energetic">😄 Happy</span>
+                <span class="chip" data-mood="Relaxed and chilling">😌 Relaxed</span>
+                <span class="chip" data-mood="A bit melancholy">🌧️ Melancholy</span>
+                <span class="chip" data-mood="Hyped up for a workout">🔥 Hyped</span>
+                <span class="chip" data-mood="In the mood for love">💖 Romantic</span>
+            </div>
+        </section>
+
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p class="loading-text">Analyzing your aura...</p>
+        </div>
+
+        <section id="results" class="results-section hidden">
+            <!-- Music Section -->
+            <div class="category">
+                <h2><i class="fa-solid fa-headphones"></i> Songs for You</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn" aria-label="Scroll left"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <div class="grid" id="musicGrid"></div>
+                    <button class="slider-btn right-btn" aria-label="Scroll right"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Movies Section -->
+            <div class="category">
+                <h2><i class="fa-solid fa-film"></i> Movie Picks</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn" aria-label="Scroll left"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <div class="grid" id="moviesGrid"></div>
+                    <button class="slider-btn right-btn" aria-label="Scroll right"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Series Section -->
+            <div class="category">
+                <h2><i class="fa-solid fa-tv"></i> Series to Binge</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn left-btn" aria-label="Scroll left"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <div class="grid" id="seriesGrid"></div>
+                    <button class="slider-btn right-btn" aria-label="Scroll right"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Template for cards -->
+    <template id="cardTemplate">
+        <div class="card glass">
+            <div class="card-image-container">
+                <img class="card-img" src="" alt="Thumbnail" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title"></h3>
+                <p class="card-subtitle"></p>
+                <p class="card-desc"></p>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
